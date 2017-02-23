@@ -11,7 +11,7 @@ import io.techery.celladapter.Cell;
 import io.techery.celladapter.CellAdapter;
 import io.techery.celladapter.select.mode.SelectionManager;
 
-public class SelectableCellAdapter<ITEM> extends CellAdapter<ITEM> {
+public class SelectableCellAdapter extends CellAdapter {
 
     private Set<Integer> selectedPositions;
     private SelectionManager selectionManager;

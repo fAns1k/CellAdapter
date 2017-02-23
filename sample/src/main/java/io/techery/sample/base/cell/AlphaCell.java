@@ -25,10 +25,6 @@ public class AlphaCell extends BaseCell<AlphaModel, AlphaCell.Listener> {
 		textView.setText(getItem().getAlpha());
 	}
 
-	@Override
-	public void prepareForReuse() {
-	}
-
 	@OnClick(R.id.btn_one_press)
 	public void onPressOne() {
 		if (getListener() != null) getListener().onPressOne(getItem());

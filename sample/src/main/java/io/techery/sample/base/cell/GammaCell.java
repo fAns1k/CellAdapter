@@ -25,11 +25,6 @@ public class GammaCell extends BaseCell<GammaModel, GammaCell.Listener> {
 		textView.setText(getItem().getGamma());
 	}
 
-	@Override
-	public void prepareForReuse() {
-
-	}
-
 	public interface Listener extends Cell.Listener<GammaModel> {
 
 	}

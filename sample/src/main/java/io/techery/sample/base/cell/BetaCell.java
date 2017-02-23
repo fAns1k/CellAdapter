@@ -25,11 +25,6 @@ public class BetaCell extends BaseCell<BetaModel, BetaCell.Listener> {
 		textView.setText(getItem().getBeta());
 	}
 
-	@Override
-	public void prepareForReuse() {
-
-	}
-
 	public interface Listener extends Cell.Listener<BetaModel> {
 
 	}

@@ -3,10 +3,10 @@ package io.techery.celladapter;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-public abstract class Cell<ITEM, LISTENER extends Cell.Listener<ITEM>> extends RecyclerView.ViewHolder {
+public abstract class Cell<T, R extends Cell.Listener<T>> extends RecyclerView.ViewHolder {
 
-    private ITEM item;
-    private LISTENER listener;
+    private T item;
+    private R listener;
 
     public Cell(View view) {
         super(view);
@@ -23,43 +23,35 @@ public abstract class Cell<ITEM, LISTENER extends Cell.Listener<ITEM>> extends R
 
             @Override
             public void onViewDetachedFromWindow(View v) {
-                clearResources();
                 v.removeOnAttachStateChangeListener(this);
             }
         });
     }
 
-    protected final ITEM getItem() {
+    protected final T getItem() {
         return item;
     }
 
-    protected LISTENER getListener() {
+    protected R getListener() {
         return listener;
     }
 
     protected abstract void syncUiWithItem();
 
-    protected void prepareForReuse() {
-    }
-
-    protected void clearResources() {
-    }
-
-    void setCellDelegate(LISTENER listener) {
+    void setCellDelegate(R listener) {
         this.listener = listener;
     }
 
-    void setItem(ITEM item) {
+    void setItem(T item) {
         this.item = item;
     }
 
-    void fillWithItem(ITEM item) {
+    void fillWithItem(T item) {
         setItem(item);
         syncUiWithItem();
     }
 
     public interface Listener<ITEM> {
-
         void onCellClicked(ITEM item);
     }
 }
