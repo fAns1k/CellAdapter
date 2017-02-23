@@ -174,6 +174,10 @@ public class CellAdapter extends RecyclerView.Adapter<Cell> {
         }
     }
 
+    public boolean contains(Object item) {
+        return items.contains(item);
+    }
+
     public void clear() {
         items.clear();
         notifyDataSetChanged();
