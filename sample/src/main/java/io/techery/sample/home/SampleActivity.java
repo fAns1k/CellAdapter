@@ -31,7 +31,7 @@ public class SampleActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this));
 
-        adapter = new CellAdapter(this);
+        adapter = new CellAdapter();
         adapter.registerCell(MenuItem.class, MenuItemCell.class, new Cell.Listener<MenuItem>() {
             @Override
             public void onCellClicked(MenuItem menuItem) {

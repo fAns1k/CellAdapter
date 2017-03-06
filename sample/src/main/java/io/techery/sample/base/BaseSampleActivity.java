@@ -34,7 +34,7 @@ public class BaseSampleActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this));
 
-        adapter = new CellAdapter(this);
+        adapter = new CellAdapter();
         adapter.registerCell(AlphaModel.class, AlphaCell.class, new AlphaCell.Listener() {
             @Override
             public void onPressOne(AlphaModel model) {

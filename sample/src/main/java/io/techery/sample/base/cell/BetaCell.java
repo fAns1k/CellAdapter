@@ -21,7 +21,7 @@ public class BetaCell extends BaseCell<BetaModel, BetaCell.Listener> {
 	}
 
 	@Override
-	protected void syncUiWithItem() {
+	protected void bindView() {
 		textView.setText(getItem().getBeta());
 	}
 

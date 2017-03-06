@@ -18,7 +18,7 @@ public class MenuItemCell extends BaseCell<MenuItem, Cell.Listener<MenuItem>> {
     }
 
     @Override
-    protected void syncUiWithItem() {
+    protected void bindView() {
         titleTv.setText(getItem().titleId);
     }
 }

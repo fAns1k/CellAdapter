@@ -21,7 +21,7 @@ public class SingleChoiceCell extends BaseSelectableCell<SingleChoiceModel, Cell
     }
 
     @Override
-    protected void syncUiWithItem() {
+    protected void bindView() {
         radioButton.setText(getItem().singleTitle);
         radioButton.setChecked(selectionManager.isSelected(getAdapterPosition()));
     }

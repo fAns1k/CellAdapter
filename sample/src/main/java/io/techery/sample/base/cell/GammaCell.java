@@ -21,7 +21,7 @@ public class GammaCell extends BaseCell<GammaModel, GammaCell.Listener> {
 	}
 
 	@Override
-	protected void syncUiWithItem() {
+	protected void bindView() {
 		textView.setText(getItem().getGamma());
 	}
 

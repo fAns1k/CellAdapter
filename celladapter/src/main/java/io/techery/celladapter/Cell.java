@@ -1,5 +1,6 @@
 package io.techery.celladapter;
 
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -16,18 +17,9 @@ public abstract class Cell<T, R extends Cell.Listener<T>> extends RecyclerView.V
                 if (listener != null) listener.onCellClicked(getItem());
             }
         });
-        view.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
-            @Override
-            public void onViewAttachedToWindow(View v) {
-            }
-
-            @Override
-            public void onViewDetachedFromWindow(View v) {
-                v.removeOnAttachStateChangeListener(this);
-            }
-        });
     }
 
+    @Nullable
     protected final T getItem() {
         return item;
     }
@@ -36,22 +28,21 @@ public abstract class Cell<T, R extends Cell.Listener<T>> extends RecyclerView.V
         return listener;
     }
 
-    protected abstract void syncUiWithItem();
+    protected abstract void bindView();
 
-    void setCellDelegate(R listener) {
+    void setDelegate(R listener) {
         this.listener = listener;
     }
 
-    void setItem(T item) {
+    void setItem(@Nullable T item) {
         this.item = item;
     }
 
-    void fillWithItem(T item) {
-        setItem(item);
-        syncUiWithItem();
+    void bindViewInternal() {
+        bindView();
     }
 
-    public interface Listener<ITEM> {
-        void onCellClicked(ITEM item);
+    public interface Listener<T> {
+        void onCellClicked(T item);
     }
 }

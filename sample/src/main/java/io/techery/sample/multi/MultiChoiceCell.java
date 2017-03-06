@@ -20,7 +20,7 @@ public class MultiChoiceCell extends BaseSelectableCell<MultiChoiceModel, Cell.L
     }
 
     @Override
-    protected void syncUiWithItem() {
+    protected void bindView() {
         checkBox.setText(getItem().multiTitle);
         checkBox.setChecked(selectionManager.isSelected(getAdapterPosition()));
     }
