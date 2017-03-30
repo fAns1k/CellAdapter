@@ -167,7 +167,11 @@ public class CellAdapter extends RecyclerView.Adapter<Cell> {
     }
 
     private Cell buildCell(Class<? extends Cell> cellClass, ViewGroup parent) {
-        Layout layoutAnnotation = cellClass.getAnnotation(Layout.class);
+        Layout layoutAnnotation = findLayoutAnnotation(cellClass);
+        if(layoutAnnotation == null) {
+            throw new IllegalStateException("Cannot find cell with Layout annotation");
+        }
+
         View cellView = LayoutInflater.from(parent.getContext())
                 .inflate(layoutAnnotation.value(), parent, false);
 
@@ -179,5 +183,15 @@ public class CellAdapter extends RecyclerView.Adapter<Cell> {
             Log.e("CellAdapter", "Can't create cell: " + e.getMessage());
         }
         return (Cell) cellObject;
+    }
+
+    @Nullable
+    private Layout findLayoutAnnotation(Class<?> cellClass) {
+        Layout layout = cellClass.getAnnotation(Layout.class);
+        if (layout == null) {
+            return findLayoutAnnotation(cellClass.getSuperclass());
+        }
+
+        return null;
     }
 }
