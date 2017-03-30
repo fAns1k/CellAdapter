@@ -14,6 +14,7 @@ import io.techery.celladapter.CellAdapter;
 import io.techery.sample.DividerItemDecoration;
 import io.techery.sample.R;
 import io.techery.sample.base.cell.AlphaCell;
+import io.techery.sample.base.cell.AlphaRealCell;
 import io.techery.sample.base.cell.BetaCell;
 import io.techery.sample.base.cell.GammaCell;
 import io.techery.sample.base.model.AlphaModel;
@@ -35,7 +36,7 @@ public class BaseSampleActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new DividerItemDecoration(this));
 
         adapter = new CellAdapter();
-        adapter.registerCell(AlphaModel.class, AlphaCell.class, new AlphaCell.Listener() {
+        adapter.registerCell(AlphaModel.class, AlphaRealCell.class, new AlphaCell.Listener() {
             @Override
             public void onPressOne(AlphaModel model) {
                 Toast.makeText(BaseSampleActivity.this, String.format("%s\npress button %d", model.getAlpha(), 1),
