@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 24
-        versionCode 4
-        versionName "1.0"
+        versionCode 5
+        versionName "1.1.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -23,11 +23,11 @@ android {
 }
 
 publish {
-    userOrg = 'techery'
+    userOrg = 'technorely'
     repoName = 'android'
-    groupId = 'io.techery'
+    groupId = 'com.technorely'
     artifactId = 'celladapter'
-    publishVersion = '1.0.4'
+    publishVersion = '1.0.7'
     desc = 'A small library to simplify RecyclerView adapter by using auto mapping item view with model'
     licences = ['MIT']
     website = 'https://github.com/techery/CellAdapter'

@@ -178,9 +178,12 @@ public class CellAdapter extends RecyclerView.Adapter<Cell> {
         RecyclerView.ViewHolder cellObject = null;
         try {
             Constructor<? extends RecyclerView.ViewHolder> constructor = cellClass.getConstructor(View.class);
+            constructor.setAccessible(true);
+
             cellObject = constructor.newInstance(cellView);
         } catch (Exception e) {
             Log.e("CellAdapter", "Can't create cell: " + e.getMessage());
+            e.printStackTrace();
         }
         return (Cell) cellObject;
     }
